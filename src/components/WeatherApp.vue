@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'WeatherApp',
+  methods: {
+    getWeather() {
+      console.log('getWeather()')
+    }
+  }
 }
 </script>
 
