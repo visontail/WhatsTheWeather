@@ -14,7 +14,7 @@ const options = {
   }
 };
 
-async function fetchWeatherData() {
+export async function fetchWeatherData() {
     try {
         const response = await axios.request(options);
         const data = {
