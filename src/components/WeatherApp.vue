@@ -1,17 +1,24 @@
 <template>
   <div id="weather-app">
     <h1 id="title">Weather App</h1>
+    <button @click="getWeatherData('London')">London</button>
   </div>
 </template>
 
 <script>
+import { fetchWeather } from '@/services/weatherService.js';
+
 export default {
   name: 'WeatherApp',
   methods: {
-    getWeather() {
-      console.log('getWeather()')
-    }
-  }
+    async getWeatherData(city) {
+      try {
+        this.weatherData = await fetchWeather(city);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
 }
 </script>
 
