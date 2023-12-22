@@ -50,6 +50,7 @@ async function fetchWeather(city) {
         return data;
       } catch (error) {
           console.error(error);
+          // handle error here
       }
 }
 // Export fetchWeather function
