@@ -93,7 +93,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F0ECE5;
+  /* background-color: #F0ECE5; */
+  background-image: url('../assets/overcast.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
