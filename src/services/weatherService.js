@@ -27,6 +27,7 @@ async function fetchWeather(city) {
           }
         // Make request
         const response = await axios.request(options);
+        console.log(response.data);
         // Create data object
         const data = {
           "location": [
@@ -34,7 +35,7 @@ async function fetchWeather(city) {
               "name": response.data.location.name,
               "region": response.data.location.region,
               "country": response.data.location.country,
-              "localtime": response.data.location.localtime
+              "localtime": response.data.location.localtime,
             }
           ],
           "weather": [
@@ -43,7 +44,11 @@ async function fetchWeather(city) {
               "tempF": response.data.current.temp_f,
               "condition": response.data.current.condition.text,
               "feelsLikeC": response.data.current.feelslike_c,
-              "feelsLikeF": response.data.current.feelslike_f
+              "feelsLikeF": response.data.current.feelslike_f,
+              "windKph": response.data.current.wind_kph,
+              "windMph": response.data.current.wind_mph,
+              "windDir": response.data.current.wind_dir,
+              "humidity": response.data.current.humidity,
             }
           ],
         }

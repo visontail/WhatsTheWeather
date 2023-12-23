@@ -13,6 +13,9 @@
     <div id="weather-details" class="weather-details">
       <p>Condition: {{ weatherData.weather[0].condition }}</p>
       <p>Feels Like: {{ weatherData.weather[0].feelsLikeC }}°C / {{ weatherData.weather[0].feelsLikeF }}°F</p>
+      <p>Wind: {{ weatherData.weather[0].windKph }} kph / {{ weatherData.weather[0].windMph }} mph</p>
+      <p>Wind Direction: {{ weatherData.weather[0].windDir }}</p>
+      <p>Humidity: {{ weatherData.weather[0].humidity }}%</p>
     </div>
   </div>
 </template>
