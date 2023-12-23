@@ -1,7 +1,9 @@
 <template>
+  <div id="app">
     <h1 id="title">Weather App</h1>
     <SearchForm @search="getWeatherData" />
     <DisplayWeather :weatherData="weatherData"/>
+  </div>
 </template>
 
 <script>
@@ -33,15 +35,20 @@ export default {
 </script>
 
 <style scoped>
-#weather-app {
+#app {
   background-color: #161A30;
-  color: #F0ECE5
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem;
 }
 #title {
   font-size: 3rem;
   font-weight: 300;
+}
+#title {
+  text-align: center;
+  color: #F0ECE5;
   margin: 0;
   padding: 1rem;
-  text-align: center;
 }
 </style>
