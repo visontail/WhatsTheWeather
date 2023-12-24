@@ -27,32 +27,9 @@ async function fetchWeather(city) {
           }
         // Make request
         const response = await axios.request(options);
+        // Return response data
         console.log(response.data);
-        // Create data object
-        const data = {
-          "location": [
-            {
-              "name": response.data.location.name,
-              "region": response.data.location.region,
-              "country": response.data.location.country,
-              "localtime": response.data.location.localtime,
-            }
-          ],
-          "weather": [
-            {
-              "tempC": response.data.current.temp_c,
-              "tempF": response.data.current.temp_f,
-              "condition": response.data.current.condition.text,
-              "feelsLikeC": response.data.current.feelslike_c,
-              "feelsLikeF": response.data.current.feelslike_f,
-              "windKph": response.data.current.wind_kph,
-              "windMph": response.data.current.wind_mph,
-              "windDir": response.data.current.wind_dir,
-              "humidity": response.data.current.humidity,
-            }
-          ],
-        }
-        return data;
+        return response.data;
       } catch (error) {
           console.error(error);
           // handle error here

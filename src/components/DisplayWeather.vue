@@ -1,21 +1,23 @@
 <template>
   <div id="data-card" v-if="weatherData">
-    <div id="weather-location" class="temperature">
-      <h2>{{ weatherData.location[0].name }}</h2>
-      <p>{{ weatherData.location[0].country }}</p>
-      <p>{{ weatherData.location[0].region }}</p>
-      <p>{{ weatherData.location[0].localtime }}</p>
-      <p class="temp">{{ weatherData.weather[0].tempC }}°C / {{ weatherData.weather[0].tempF }}°F</p>
+    <div id="weather-main" class="temperature">
+      <p id="temp">{{ weatherData.current.temp_c }}°C / {{ weatherData.current.temp_f }}°F</p>
+      <!-- <img :src="getConditionIcon(weatherData.current.condition.code)" /> -->
+      <p>Condition: {{ weatherData.current.condition.text }}</p>
     </div>
     <div id="seperator-1"></div>
     <div id="seperator-2"></div>
     <div id="seperator-3"></div>
     <div id="weather-details" class="weather-details">
-      <p>Condition: {{ weatherData.weather[0].condition }}</p>
-      <p>Feels Like: {{ weatherData.weather[0].feelsLikeC }}°C / {{ weatherData.weather[0].feelsLikeF }}°F</p>
-      <p>Wind: {{ weatherData.weather[0].windKph }} kph / {{ weatherData.weather[0].windMph }} mph</p>
-      <p>Wind Direction: {{ weatherData.weather[0].windDir }}</p>
-      <p>Humidity: {{ weatherData.weather[0].humidity }}%</p>
+      <h2>{{ weatherData.location.name }}</h2>
+      <p>{{ weatherData.location.localtime }}</p>
+      <p>{{ weatherData.location.country }}</p>
+      <p>{{ weatherData.location.region }}</p>
+      <p>Coordinates: {{ weatherData.location.lat }}, {{ weatherData.location.lon }}</p>
+      <p>Feels Like: {{ weatherData.current.feelslike_c }}°C / {{ weatherData.current.feelslike_f }}°F</p>
+      <p>Wind: {{ weatherData.current.wind_kph }} kph / {{ weatherData.current.wind_mph }} mph</p>
+      <p>Wind Direction: {{ weatherData.current.wind_dir }}</p>
+      <p>Humidity: {{ weatherData.current.humidity }}%</p>
     </div>
   </div>
 </template>
@@ -27,23 +29,24 @@ export default {
     weatherData: Object,
   },
   methods: {
-
+    getConditionIcon(condition) {
+      const conditionIcons = {
+        'Clear': '../assets/clear.png',
+        'Partly cloudy': '../assets/partly-cloudy.png',
+        'Cloudy': '../assets/cloudy.png',
+        'Overcast': require('@/assets/icons/overcast.png'),
+        'Mist': '../assets/mist.png',
+        'Patchy rain possible': '../assets/patchy-rain.png',
+        // Add more condition mappings as needed
+      };
+      console.log(conditionIcons[condition]);
+      return conditionIcons[condition];
+    },
   },
 }
 </script>
 
 <style scoped>
-#weather-app {
-  background-color: #161A30;
-}
-
-#title {
-  font-size: 3rem;
-  font-weight: 300;
-  margin: 0;
-  padding: 1rem;
-  text-align: center;
-}
 
 #data-card {
   background-color: #161A30;
@@ -53,6 +56,28 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+
+#weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('../assets/imgs/overcast.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  padding-bottom: 8rem;
+}
+
+#temp {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
 #seperator-1 {
   width: 100%;
   background: url('../assets/wave-1.svg');
@@ -74,7 +99,7 @@ export default {
   position: relative;
   z-index: 1;
   margin-top: -10rem;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 #seperator-3 {
   width: 100%;
@@ -89,21 +114,6 @@ export default {
   opacity: 0.5;
 }
 
-#weather-location {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: #F0ECE5; */
-  background-image: url('../assets/overcast.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  border-radius: 10px 10px 0px 0px;
-  padding-bottom: 6rem;
-}
-
 #weather-details {
   display: flex;
   flex-direction: column;
@@ -113,16 +123,6 @@ export default {
   width: 100%;
   border-radius: 0px 0px 10px 10px;
   padding: 0.5rem 0;
-}
-
-.temp-image {
-  margin-top: 1rem;
-}
-
-.temp {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 1rem;
 }
 
 </style>
