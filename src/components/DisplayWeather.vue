@@ -1,8 +1,13 @@
 <template>
   <div id="data-card" v-if="weatherData">
     <div id="weather-main" class="temperature">
-      <p id="temp">{{ weatherData.current.temp_c }}°C / {{ weatherData.current.temp_f }}°F</p>
-      <!-- <img :src="getConditionIcon(weatherData.current.condition.code)" /> -->
+      <h2>{{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
+      <p>{{ weatherData.location.region }}</p>
+      <p id="temp">{{ weatherData.current.temp_c }}°C</p>
+      <p id="temp">{{ weatherData.current.temp_f }}°F</p>
+      <p>{{ getDayOfWeek(weatherData.location.localtime) }}</p>
+      <p>{{ getFormattedTime(weatherData.location.localtime) }}</p>
+      <p>{{ getTextAbove(weatherData.location.localtime) }}</p>
       <p>Condition: {{ weatherData.current.condition.text }}</p>
     </div>
     <div id="seperator-1"></div>
@@ -42,12 +47,38 @@ export default {
       console.log(conditionIcons[condition]);
       return conditionIcons[condition];
     },
+    getTextAbove(localtime) {
+      const date = new Date(localtime);
+      const time = date.getHours();
+      const test = date.getTime();
+      console.log(test);
+      if (time > 4 && time < 12) {
+        return "Good Morning";
+      } else if (time > 12 && time < 18) {
+        return "Good Afternoon";
+      } else {
+        return "Good Night";
+      }
+    },
+    getFormattedTime(localtime){
+      const date = new Date(localtime);
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      // Format as "HH:mm"
+    return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+    },
+    getDayOfWeek(localtime) {
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const date = new Date(localtime);
+      // Get the day of the week (0-6), and use it to index into the array
+      return daysOfWeek[date.getDay()];
+    },
+
   },
 }
 </script>
 
 <style scoped>
-
 #data-card {
   background-color: #161A30;
   border-radius: 8px;
@@ -89,6 +120,7 @@ export default {
   z-index: 2;
   margin-top: -10rem;
 }
+
 #seperator-2 {
   width: 100%;
   background: url('../assets/wave-2.svg');
@@ -101,6 +133,7 @@ export default {
   margin-top: -10rem;
   opacity: 0.8;
 }
+
 #seperator-3 {
   width: 100%;
   background: url('../assets/wave-3.svg');
@@ -124,6 +157,5 @@ export default {
   border-radius: 0px 0px 10px 10px;
   padding: 0.5rem 0;
 }
-
 </style>
 
