@@ -5,10 +5,11 @@
       <p>{{ weatherData.location.region }}</p>
       <p id="temp">{{ weatherData.current.temp_c }}°C</p>
       <p id="temp">{{ weatherData.current.temp_f }}°F</p>
-      <p>{{ getDayOfWeek(weatherData.location.localtime) }}</p>
-      <p>{{ getFormattedTime(weatherData.location.localtime) }}</p>
-      <p>{{ getTextAbove(weatherData.location.localtime) }}</p>
+      <p>{{ weatherData.location.hour }}</p>
+      <p>{{ weatherData.location.dayOfWeek }}</p>
+      <p>{{ weatherData.location.welcomeText }}</p>
       <p>Condition: {{ weatherData.current.condition.text }}</p>
+      <img id="condition-icon" :src="weatherData.current.condition.icon" />
     </div>
     <div id="seperator-1"></div>
     <div id="seperator-2"></div>
@@ -32,48 +33,6 @@ export default {
   name: 'DisplayWeather',
   props: {
     weatherData: Object,
-  },
-  methods: {
-    getConditionIcon(condition) {
-      const conditionIcons = {
-        'Clear': '../assets/clear.png',
-        'Partly cloudy': '../assets/partly-cloudy.png',
-        'Cloudy': '../assets/cloudy.png',
-        'Overcast': require('@/assets/icons/overcast.png'),
-        'Mist': '../assets/mist.png',
-        'Patchy rain possible': '../assets/patchy-rain.png',
-        // Add more condition mappings as needed
-      };
-      console.log(conditionIcons[condition]);
-      return conditionIcons[condition];
-    },
-    getTextAbove(localtime) {
-      const date = new Date(localtime);
-      const time = date.getHours();
-      const test = date.getTime();
-      console.log(test);
-      if (time > 4 && time < 12) {
-        return "Good Morning";
-      } else if (time > 12 && time < 18) {
-        return "Good Afternoon";
-      } else {
-        return "Good Night";
-      }
-    },
-    getFormattedTime(localtime){
-      const date = new Date(localtime);
-      const hours = date.getHours();
-      const minutes = date.getMinutes();
-      // Format as "HH:mm"
-    return `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-    },
-    getDayOfWeek(localtime) {
-      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      const date = new Date(localtime);
-      // Get the day of the week (0-6), and use it to index into the array
-      return daysOfWeek[date.getDay()];
-    },
-
   },
 }
 </script>

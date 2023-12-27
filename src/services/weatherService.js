@@ -13,7 +13,7 @@ const options = {
     }
 };
 /**
- * Fetches weather data from RapidAPI Weather API.
+ * Fetches weather data from RapidAPI Weather API for the given city.
  * @param {string} city - The city to fetch weather data for.
  */
 async function fetchWeather(city) {
