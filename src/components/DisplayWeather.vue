@@ -1,6 +1,6 @@
 <template>
   <div id="data-card" v-if="weatherData">
-    <div id="weather-main" class="temperature">
+    <div id="weather-main" class="temperature" :style="{ backgroundImage: `url('${weatherData.current.condition.background_img}')` }">
       <h2>{{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
       <p>{{ weatherData.location.region }}</p>
       <p id="temp">{{ weatherData.current.temp_c }}°C</p>
@@ -8,13 +8,9 @@
       <p>{{ weatherData.location.hour }}</p>
       <p>{{ weatherData.location.dayOfWeek }}</p>
       <p>{{ weatherData.location.welcomeText }}</p>
-      <p>Condition: {{ weatherData.current.condition.text }}</p>
-      <img id="condition-icon" :src="weatherData.current.condition.icon" />
+      <p>{{ weatherData.current.condition.text }}</p>
+      <img id="condition-icon" :src="weatherData.current.condition.icon"/>
     </div>
-
-    <div id="seperator-1"></div>
-    <div id="seperator-2"></div>
-    <div id="seperator-3"></div>
     <div id="weather-details" class="weather-details">
       <h2>{{ weatherData.location.name }}</h2>
       <p>{{ weatherData.location.localtime }}</p>
@@ -58,7 +54,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../assets/imgs/overcast.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -66,6 +61,7 @@ export default {
   width: 100%;
   border-radius: 10px 10px 0px 0px;
   padding-bottom: 8rem;
+  color: #F0ECE5;
 }
 
 #temp {
@@ -73,44 +69,6 @@ export default {
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 0;
-}
-
-#seperator-1 {
-  width: 100%;
-  background: url('../assets/wave-1.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 10rem;
-  position: relative;
-  z-index: 2;
-  margin-top: -10rem;
-}
-
-#seperator-2 {
-  width: 100%;
-  background: url('../assets/wave-2.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 10rem;
-  position: relative;
-  z-index: 1;
-  margin-top: -10rem;
-  opacity: 0.8;
-}
-
-#seperator-3 {
-  width: 100%;
-  background: url('../assets/wave-3.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 10rem;
-  position: relative;
-  z-index: 3;
-  margin-top: -10rem;
-  opacity: 0.5;
 }
 
 #weather-details {
