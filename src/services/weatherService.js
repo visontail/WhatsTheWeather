@@ -28,7 +28,6 @@ async function fetchWeather(city) {
         // Make request
         const response = await axios.request(options);
         // Return response data
-        console.log(response.data);
         return response.data;
       } catch (error) {
           console.error(error);

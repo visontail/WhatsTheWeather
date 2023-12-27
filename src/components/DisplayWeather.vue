@@ -11,6 +11,7 @@
       <p>Condition: {{ weatherData.current.condition.text }}</p>
       <img id="condition-icon" :src="weatherData.current.condition.icon" />
     </div>
+
     <div id="seperator-1"></div>
     <div id="seperator-2"></div>
     <div id="seperator-3"></div>
@@ -34,6 +35,12 @@ export default {
   props: {
     weatherData: Object,
   },
+  methods: {
+    isCelcius: true,
+    toggleTemp() {
+      this.isCelcius = !this.isCelcius;
+    },
+  }
 }
 </script>
 

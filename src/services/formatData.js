@@ -23,15 +23,14 @@ function getConditionIcon(condition) {
 function getWelcomText(localtime) {
     const date = new Date(localtime);
     const time = date.getHours();
-    const test = date.getTime();
-    console.log(test);
-    if (time > 4 && time < 12) {
+    if (4 < time && time < 12) {
       return "Good Morning";
-    } else if (time > 12 && time < 18) {
+    } else if (12 < time && time < 18) {
       return "Good Afternoon";
     } else {
       return "Good Night";
     }
+    
 }
 
 /**
