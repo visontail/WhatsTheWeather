@@ -19,8 +19,7 @@
       <p>{{ weatherData.location.region }}</p>
       <p>Coordinates: {{ weatherData.location.lat }}, {{ weatherData.location.lon }}</p>
       <p>Feels Like: {{ isCelcius ? weatherData.current.feelslike_c : weatherData.current.feelslike_f }}°{{ isCelcius ? 'C' : 'F' }}</p>
-      <p>Wind: {{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'kph' : 'mph' }}</p>
-      <p>Wind Direction: {{ weatherData.current.wind_dir }}</p>
+      <p>Wind: {{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'kph' : 'mph' }} ({{ weatherData.current.wind_dir }})</p>
       <p>Humidity: {{ weatherData.current.humidity }}%</p>
     </div>
   </div>

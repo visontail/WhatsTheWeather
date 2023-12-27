@@ -5,6 +5,7 @@
 function getConditionImage(condition) {
   const conditionImages = {
     'Sunny': require("@/assets/imgs/clear.jpg"),
+    'Clear': require("@/assets/imgs/clear.jpg"),
     'Partly cloudy': require("@/assets/imgs/partly-cloudy.jpg"),
     'Cloudy': require("@/assets/imgs/cloudy.jpg"),
     'Overcast': require("@/assets/imgs/overcast.jpg"),
