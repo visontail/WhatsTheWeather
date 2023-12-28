@@ -59,6 +59,7 @@ export default {
 }
 
 #weather-main {
+  margin: 30px 0px;
   width: 65vw;
   background-size: cover;
   background-position: center;
