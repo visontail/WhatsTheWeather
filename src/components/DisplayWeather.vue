@@ -45,23 +45,20 @@ export default {
 
 <style scoped>
 #data-card {
-  background-color: #161A30;
   border-radius: 8px;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-#weather-main {
+#weather-main,
+#weather-details {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
   width: 100%;
-  border-radius: 10px 10px 0px 0px;
-  padding-bottom: 8rem;
   color: #F0ECE5;
+  padding: 1rem;
 }
 
 #temp {
@@ -72,14 +69,7 @@ export default {
 }
 
 #weather-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #B6BBC4;
-  height: 100%;
-  width: 100%;
-  border-radius: 0px 0px 10px 10px;
-  padding: 0.5rem 0;
+
 }
 </style>
 

@@ -46,12 +46,12 @@ export default {
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #B6BBC4;
+  background-color: #144272;
   font-family: 'Montserrat', sans-serif;
 }
 
 #weather-app {
-  background-color: #161A30;
+  background-color: #0A2647;
   padding: 1rem;
   margin: 1rem;
   border-radius: 5px;
