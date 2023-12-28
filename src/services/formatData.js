@@ -1,64 +1,4 @@
 /**
- * Selecting the correct backgorund image for the given condition for display.
- * @param {*} condition - The condition to get the icon for.
- */
-function getConditionImage(condition) {
-  const conditionImages = {
-    'Sunny': require("@/assets/imgs/clear.jpg"),
-    'Clear': require("@/assets/imgs/clear.jpg"),
-    'Partly cloudy': require("@/assets/imgs/partly-cloudy.jpg"),
-    'Cloudy': require("@/assets/imgs/cloudy.jpg"),
-    'Overcast': require("@/assets/imgs/overcast.jpg"),
-    'Mist': require("@/assets/imgs/fog.jpg"),
-    'Patchy rain possible': require("@/assets/imgs/rain.jpg"),
-    'Patchy snow possible': require("@/assets/imgs/snow.jpg"),
-    'Patchy sleet possible': require("@/assets/imgs/snow.jpg"),
-    'Patchy freezing drizzle possible': require("@/assets/imgs/snow.jpg"),
-    'Thundery outbreaks possible': require("@/assets/imgs/storm.jpg"),
-    'Blowing snow': require("@/assets/imgs/snow.jpg"),
-    'Blizzard': require("@/assets/imgs/snow.jpg"),
-    'Fog': require("@/assets/imgs/fog.jpg"),
-    'Freezing fog': require("@/assets/imgs/fog.jpg"),
-    'Patchy light drizzle': require("@/assets/imgs/rain.jpg"),
-    'Light drizzle': require("@/assets/imgs/rain.jpg"),
-    'Freezing drizzle': require("@/assets/imgs/rain.jpg"),
-    'Heavy freezing drizzle': require("@/assets/imgs/rain.jpg"),
-    'Patchy light rain': require("@/assets/imgs/rain.jpg"),
-    'Light rain': require("@/assets/imgs/rain.jpg"),
-    'Moderate rain at times': require("@/assets/imgs/rain.jpg"),
-    'Moderate rain': require("@/assets/imgs/rain.jpg"),
-    'Heavy rain at times': require("@/assets/imgs/rain.jpg"),
-    'Heavy rain': require("@/assets/imgs/rain.jpg"),
-    'Light freezing rain': require("@/assets/imgs/rain.jpg"),
-    'Moderate or heavy freezing rain': require("@/assets/imgs/rain.jpg"),
-    'Light sleet': require("@/assets/imgs/snow.jpg"),
-    'Moderate or heavy sleet': require("@/assets/imgs/snow.jpg"),
-    'Patchy light snow': require("@/assets/imgs/snow.jpg"),
-    'Light snow': require("@/assets/imgs/snow.jpg"),
-    'Patchy moderate snow': require("@/assets/imgs/snow.jpg"),
-    'Moderate snow': require("@/assets/imgs/snow.jpg"),
-    'Patchy heavy snow': require("@/assets/imgs/snow.jpg"),
-    'Heavy snow': require("@/assets/imgs/snow.jpg"),
-    'Ice pellets': require("@/assets/imgs/snow.jpg"),
-    'Light rain shower': require("@/assets/imgs/rain.jpg"),
-    'Moderate or heavy rain shower': require("@/assets/imgs/rain.jpg"),
-    'Torrential rain shower': require("@/assets/imgs/rain.jpg"),
-    'Light sleet showers': require("@/assets/imgs/snow.jpg"),
-    'Moderate or heavy sleet showers': require("@/assets/imgs/snow.jpg"),
-    'Light snow showers': require("@/assets/imgs/snow.jpg"),
-    'Moderate or heavy snow showers': require("@/assets/imgs/snow.jpg"),
-    'Light showers of ice pellets': require("@/assets/imgs/snow.jpg"),
-    'Moderate or heavy showers of ice pellets': require("@/assets/imgs/snow.jpg"),
-    'Patchy light rain with thunder': require("@/assets/imgs/rain.jpg"),
-    'Moderate or heavy rain with thunder': require("@/assets/imgs/rain.jpg"),
-    'Patchy light snow with thunder': require("@/assets/imgs/snow.jpg"),
-    'Moderate or heavy snow with thunder': require("@/assets/imgs/snow.jpg"),
-  };
-  return conditionImages[condition];
-
-}
-
-/**
  * Selecting the correct icon for the given condition for display.
  * @param {*} condition - The condition to get the icon for.
  */
@@ -67,7 +7,7 @@ function getConditionIcon(condition) {
     "Sunny": require("@/assets/icons/sunny.png"),
     "Partly cloudy": require("@/assets/icons/partly-cloudy.png"),
     "Cloudy": require("@/assets/icons/cloudy.png"),
-    "Overcast": require("@/assets/icons/overcast.png"),
+    "Overcast": require("@/assets/icons/cloudy.png"),
     "Mist": require("@/assets/icons/fog.png"),
     "Patchy rain possible": require("@/assets/icons/rain.png"),
     "Patchy snow possible": require("@/assets/icons/snow.png"),
@@ -108,28 +48,12 @@ function getConditionIcon(condition) {
     "Moderate or heavy snow showers": require("@/assets/icons/snow.png"),
     "Light showers of ice pellets": require("@/assets/icons/snow.png"),
     "Moderate or heavy showers of ice pellets": require("@/assets/icons/snow.png"),
-    "Patchy light rain with thunder": require("@/assets/icons/rain.png"),
-    "Moderate or heavy rain with thunder": require("@/assets/icons/rain.png"),
+    "Patchy light rain with thunder": require("@/assets/icons/storm.png"),
+    "Moderate or heavy rain with thunder": require("@/assets/icons/storm.png"),
     "Patchy light snow with thunder": require("@/assets/icons/snow.png"),
     "Moderate or heavy snow with thunder": require("@/assets/icons/snow.png"),
   };
   return conditionIcons[condition];
-}
-
-/**
- * Get the correct welcome text for the given time.
- * @param {*} localtime - The localtime from the weather api response.
- */
-function getWelcomText(localtime) {
-  const date = new Date(localtime);
-  const time = date.getHours();
-  if (4 < time && time < 12) {
-    return "Good Morning";
-  } else if (12 < time && time < 18) {
-    return "Good Afternoon";
-  } else {
-    return "Good Night";
-  }
 }
 
 /**
@@ -171,8 +95,6 @@ function getDayOfWeek(localtime) {
 function formatWeatherData(data) {
   const conditionIcons = getConditionIcon(data.current.condition.text);
   console.log(data.current.condition.text);
-  const conditionImages = getConditionImage(data.current.condition.text);
-  const welcomeText = getWelcomText(data.location.localtime);
   const formattedTime = getFormattedTime(data.location.localtime);
   const dayOfWeek = getDayOfWeek(data.location.localtime);
 
@@ -184,7 +106,6 @@ function formatWeatherData(data) {
       localtime: data.location.localtime,
       hour: formattedTime,
       dayOfWeek: dayOfWeek,
-      welcomeText: welcomeText,
       lat: data.location.lat,
       lon: data.location.lon,
     },
@@ -200,7 +121,6 @@ function formatWeatherData(data) {
       condition: {
         text: data.current.condition.text,
         icon: conditionIcons,
-        background_img: conditionImages,
       },
     },
   };

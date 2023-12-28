@@ -1,13 +1,12 @@
 <template>
   <div id="data-card" v-if="weatherData">
-    <div id="weather-main" class="temperature" :style="{ backgroundImage: `url('${weatherData.current.condition.background_img}')` }">
+    <div id="weather-main" class="temperature">
       <h2>{{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
       <p>{{ weatherData.location.region }}</p>
       <p v-if="isCelcius" id="temp">{{ weatherData.current.temp_c }}°C</p>
       <p v-else id="temp">{{ weatherData.current.temp_f }}°F</p>
       <p>{{ weatherData.location.hour }}</p>
       <p>{{ weatherData.location.dayOfWeek }}</p>
-      <p>{{ weatherData.location.welcomeText }}</p>
       <p>{{ weatherData.current.condition.text }}</p>
       <img id="condition-icon" :src="weatherData.current.condition.icon"/>
     </div>
@@ -58,9 +57,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
