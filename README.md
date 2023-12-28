@@ -7,6 +7,5 @@
 
 ## Technologies
 - *Front-end Framework :* **Vue.js**
-- *State Management (if needed) :* **Vuex**
 - *HTTP Requests :* **Axios**
 - *Styling :* **Bootstrap**
