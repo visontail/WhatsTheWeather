@@ -57,6 +57,31 @@ function getConditionIcon(condition) {
 }
 
 /**
+ * Selecting the correct icon for the given condition for display.
+ * @param {*} condition - The condition to get the icon for.
+ */
+function getBackgroundImg(localtime) {
+  const date = new Date(localtime);
+  const month = date.getMonth();
+
+  const backgroundImgs = {
+    0: require("@/assets/backgrounds/winter.jpg"),
+    1: require("@/assets/backgrounds/winter.jpg"),
+    2: require("@/assets/backgrounds/spring.jpg"),
+    3: require("@/assets/backgrounds/spring.jpg"),
+    4: require("@/assets/backgrounds/spring.jpg"),
+    5: require("@/assets/backgrounds/summer.jpg"),
+    6: require("@/assets/backgrounds/summer.jpg"),
+    7: require("@/assets/backgrounds/summer.jpg"),
+    8: require("@/assets/backgrounds/autumn.jpg"),
+    9: require("@/assets/backgrounds/autumn.jpg"),
+    10: require("@/assets/backgrounds/autumn.jpg"),
+    11: require("@/assets/backgrounds/winter.jpg"),
+  };
+  return backgroundImgs[month];
+}
+
+/**
  * Get hours and minutes from localtime.
  * @param {*} localtime - The localtime from the weather api response.
  */
@@ -94,7 +119,7 @@ function getDayOfWeek(localtime) {
  */
 function formatWeatherData(data) {
   const conditionIcons = getConditionIcon(data.current.condition.text);
-  console.log(data.current.condition.text);
+  const backgroundImg = getBackgroundImg(data.location.localtime);
   const formattedTime = getFormattedTime(data.location.localtime);
   const dayOfWeek = getDayOfWeek(data.location.localtime);
 
@@ -122,6 +147,7 @@ function formatWeatherData(data) {
         text: data.current.condition.text,
         icon: conditionIcons,
       },
+      backgroundImg: backgroundImg,
     },
   };
   return formattedData;

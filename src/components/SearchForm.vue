@@ -1,7 +1,7 @@
 <template>
     <div id="search-box">
         <input v-model="city" placeholder="Enter city" />
-        <button id="search" @click="search"><img id="search-img" src="@/assets/search.svg"></button>
+        <button id="search" @click="search"></button>
     </div>
 </template>
   
@@ -42,7 +42,6 @@ input {
 }
 
 #search {
-    background-color: #F0ECE5;
     border: none;
     cursor: pointer;
     margin-left: 1rem;
@@ -50,14 +49,17 @@ input {
     height: 32px;
     display: flex;
     align-items: center;
-}
-
-#search-img {
-    width: 20px;
-    height: 20px;
+    background-image: url('../assets/search.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
 }
 
 #search:hover {
-    background-color: #B6BBC4;
+    background-image: url('../assets/search.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    background-color: #FFFFFF;
 }
 </style>

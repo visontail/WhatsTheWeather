@@ -1,8 +1,8 @@
 <template>
   <div id="weather-app">
     <h1 id="title">WhatsTheWeather</h1>
-    <p id="enter-text">Enter a city to get the current weather</p>
     <SearchForm @search="getWeatherData" />
+    <div id="divider"></div>
     <DisplayWeather :weatherData="weatherData" />
   </div>
 </template>
@@ -48,6 +48,7 @@ body {
   height: 100vh;
   background-color: #144272;
   font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
 }
 
 #weather-app {
@@ -55,7 +56,7 @@ body {
   padding: 1rem;
   margin: 1rem;
   border-radius: 5px;
-  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 14px 8px rgba(0,0,0,0.75);
 }
 
 #title, #enter-text {
