@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <div id="weather-app">
-      <h1 id="title">the.weather</h1>
-      <div id="divider"></div>
       <DisplayWeather :weatherData="weatherData" />
     </div>
   </div>
@@ -58,7 +56,6 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   color:azure;  
 }
 

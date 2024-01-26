@@ -1,6 +1,7 @@
 <template>
-  <div id="data-card" v-if="weatherData">
+  <div id="weather-container" v-if="weatherData">
     <div id="weather-main">
+      <h1 id="title">the.weather</h1>
       <h2 id="city">{{ weatherData.location.name }}</h2>
       <p v-if="isCelcius" id="temp">{{ weatherData.current.temp_c }}°C</p>
       <p v-else id="temp">{{ weatherData.current.temp_f }}°F</p>
@@ -53,14 +54,20 @@ export default {
 </script>
 
 <style scoped>
-#weather-details{
+#weather-container{
+  display: flex;
+}
+#weather-main{
+  flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+#weather-details{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 50%;
   background-color: rgba(255, 255, 255, 0.3);
-  width: 100%;
 }
 
 </style>
