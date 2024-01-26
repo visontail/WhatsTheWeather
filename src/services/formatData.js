@@ -60,25 +60,58 @@ function getConditionIcon(condition) {
  * Selecting the correct icon for the given condition for display.
  * @param {*} condition - The condition to get the icon for.
  */
-function getBackgroundImg(localtime) {
-  const date = new Date(localtime);
-  const month = date.getMonth();
-
-  const backgroundImgs = {
-    0: require("@/assets/backgrounds/winter.jpg"),
-    1: require("@/assets/backgrounds/winter.jpg"),
-    2: require("@/assets/backgrounds/spring.jpg"),
-    3: require("@/assets/backgrounds/spring.jpg"),
-    4: require("@/assets/backgrounds/spring.jpg"),
-    5: require("@/assets/backgrounds/summer.jpg"),
-    6: require("@/assets/backgrounds/summer.jpg"),
-    7: require("@/assets/backgrounds/summer.jpg"),
-    8: require("@/assets/backgrounds/autumn.jpg"),
-    9: require("@/assets/backgrounds/autumn.jpg"),
-    10: require("@/assets/backgrounds/autumn.jpg"),
-    11: require("@/assets/backgrounds/winter.jpg"),
+function getBackgroundImg(condition) {
+  const conditionIcons = {
+    "Sunny": require("@/assets/icons/sunny.png"),
+    "Partly cloudy": require("@/assets/icons/partly-cloudy.png"),
+    "Cloudy": require("@/assets/icons/cloudy.png"),
+    "Overcast": require("@/assets/icons/cloudy.png"),
+    "Mist": require("@/assets/icons/fog.png"),
+    "Patchy rain possible": require("@/assets/icons/rain.png"),
+    "Patchy snow possible": require("@/assets/icons/snow.png"),
+    "Patchy sleet possible": require("@/assets/icons/snow.png"),
+    "Patchy freezing drizzle possible": require("@/assets/icons/snow.png"),
+    "Thundery outbreaks possible": require("@/assets/icons/storm.png"),
+    "Blowing snow": require("@/assets/icons/snow.png"),
+    "Blizzard": require("@/assets/icons/snow.png"),
+    "Fog": require("@/assets/icons/fog.png"),
+    "Freezing fog": require("@/assets/icons/fog.png"),
+    "Patchy light drizzle": require("@/assets/icons/rain.png"),
+    "Light drizzle": require("@/assets/icons/rain.png"),
+    "Freezing drizzle": require("@/assets/icons/rain.png"),
+    "Heavy freezing drizzle": require("@/assets/icons/rain.png"),
+    "Patchy light rain": require("@/assets/icons/rain.png"),
+    "Light rain": require("@/assets/icons/rain.png"),
+    "Moderate rain at times": require("@/assets/icons/rain.png"),
+    "Moderate rain": require("@/assets/icons/rain.png"),
+    "Heavy rain at times": require("@/assets/icons/rain.png"),
+    "Heavy rain": require("@/assets/icons/rain.png"),
+    "Light freezing rain": require("@/assets/icons/rain.png"),
+    "Moderate or heavy freezing rain": require("@/assets/icons/rain.png"),
+    "Light sleet": require("@/assets/icons/snow.png"),
+    "Moderate or heavy sleet": require("@/assets/icons/snow.png"),
+    "Patchy light snow": require("@/assets/icons/snow.png"),
+    "Light snow": require("@/assets/icons/snow.png"),
+    "Patchy moderate snow": require("@/assets/icons/snow.png"),
+    "Moderate snow": require("@/assets/icons/snow.png"),
+    "Patchy heavy snow": require("@/assets/icons/snow.png"),
+    "Heavy snow": require("@/assets/icons/snow.png"),
+    "Ice pellets": require("@/assets/icons/snow.png"),
+    "Light rain shower": require("@/assets/icons/rain.png"),
+    "Moderate or heavy rain shower": require("@/assets/icons/rain.png"),
+    "Torrential rain shower": require("@/assets/icons/rain.png"),
+    "Light sleet showers": require("@/assets/icons/snow.png"),
+    "Moderate or heavy sleet showers": require("@/assets/icons/snow.png"),
+    "Light snow showers": require("@/assets/icons/snow.png"),
+    "Moderate or heavy snow showers": require("@/assets/icons/snow.png"),
+    "Light showers of ice pellets": require("@/assets/icons/snow.png"),
+    "Moderate or heavy showers of ice pellets": require("@/assets/icons/snow.png"),
+    "Patchy light rain with thunder": require("@/assets/icons/storm.png"),
+    "Moderate or heavy rain with thunder": require("@/assets/icons/storm.png"),
+    "Patchy light snow with thunder": require("@/assets/icons/snow.png"),
+    "Moderate or heavy snow with thunder": require("@/assets/icons/snow.png"),
   };
-  return backgroundImgs[month];
+  return conditionIcons[condition];
 }
 
 /**

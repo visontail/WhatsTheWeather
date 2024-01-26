@@ -1,14 +1,14 @@
 <template>
-  <div id="weather-app">
-    <h1 id="title">WhatsTheWeather</h1>
-    <SearchForm @search="getWeatherData" />
-    <div id="divider"></div>
-    <DisplayWeather :weatherData="weatherData" />
+  <div id="app">
+    <div id="weather-app">
+      <h1 id="title">the.weather</h1>
+      <div id="divider"></div>
+      <DisplayWeather :weatherData="weatherData" />
+    </div>
   </div>
 </template>
 
 <script>
-import SearchForm from './components/SearchForm.vue';
 import DisplayWeather from './components/DisplayWeather.vue';
 import { fetchWeather } from './services/weatherService';
 import { formatWeatherData } from './services/formatData';
@@ -32,7 +32,6 @@ export default {
     },
   },
   components: {
-    SearchForm,
     DisplayWeather,
   },
   created() {
@@ -43,37 +42,24 @@ export default {
 </script>
 
 <style>
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: #144272;
-  font-family: 'Montserrat', sans-serif;
-  margin-top: 100px;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 40px;
 }
-
 #weather-app {
-  background-color: #0A2647;
-  padding: 1rem;
-  margin: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   border-radius: 5px;
-  box-shadow: 4px 4px 14px 8px rgba(0,0,0,0.75);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  background-image: url('./assets/backgrounds/storm.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color:azure;  
 }
-
-#title, #enter-text {
-  color: #F0ECE5;
-  margin: 0;
-}
-#title {
-  font-size: 1rem;
-  font-weight: 50;
-  text-align: left;
-}
-#enter-text {
-  padding: 1rem;
-  font-size: 2rem;
-  text-align: center;
-
-}
-
 
 </style>
