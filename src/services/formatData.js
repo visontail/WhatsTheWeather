@@ -115,17 +115,40 @@ function getBackgroundImg(condition) {
 }
 
 /**
- * Get hours and minutes from localtime.
+ * Get the day of the week from localtime.
  * @param {*} localtime - The localtime from the weather api response.
  */
-function getFormattedTime(localtime) {
-  const date = new Date(localtime);
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  // Format as "HH:mm"
-  return `${hours < 10 ? "0" : ""}${hours}:${
-    minutes < 10 ? "0" : ""
-  }${minutes}`;
+function getFormattedDate(localtime) {
+  const date = localtime.split(" ")[0];
+  //get month
+  const month = date.split("-")[1];
+  // format to text
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Des",
+  ];
+  const monthText = months[month - 1];
+  console.log(monthText);
+  //get day
+  const day = date.split("-")[2];
+  console.log(day);
+  //get year
+  const year = date.split("-")[0];
+  // format year to last to digits
+  const yearText = year.slice(2, 4);
+  console.log(yearText);
+  // Get the day of the week (0-6), and use it to index into the array
+  return `${day} ${monthText} ${yearText}`;
 }
 
 /**
@@ -153,16 +176,19 @@ function getDayOfWeek(localtime) {
 function formatWeatherData(data) {
   const conditionIcons = getConditionIcon(data.current.condition.text);
   const backgroundImg = getBackgroundImg(data.location.localtime);
-  const formattedTime = getFormattedTime(data.location.localtime);
+  const date = getFormattedDate(data.location.localtime);
+  console.log(date);
   const dayOfWeek = getDayOfWeek(data.location.localtime);
+  console.log(data.location.localtime);
 
   const formattedData = {
     location: {
       name: data.location.name,
       country: data.location.country,
       region: data.location.region,
+      date: date,
       localtime: data.location.localtime,
-      hour: formattedTime,
+      hour: data.location.localtime.split(" ")[1],
       dayOfWeek: dayOfWeek,
       lat: data.location.lat,
       lon: data.location.lon,

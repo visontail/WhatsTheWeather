@@ -36,6 +36,10 @@ export default {
     // Load default weather for London when the page is loaded
     this.getWeatherData('London');
   },
+  mounted() {
+    // set the page title in browser tab
+    document.title = 'whats-the-weather';
+  },
 }
 </script>
 
@@ -58,5 +62,17 @@ export default {
   background-repeat: no-repeat;
   color:azure;  
 }
+
+@media screen and (max-width: 900px) {
+  #app {
+    padding: 5px;
+  }
+  #weather-app {
+    background-image: none;
+    background-color: #030637;
+    min-width: 400px;
+  }
+}
+
 
 </style>
