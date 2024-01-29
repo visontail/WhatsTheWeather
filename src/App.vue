@@ -1,40 +1,18 @@
 <template>
   <div id="app">
     <div id="weather-app">
-      <DisplayWeather :weatherData="weatherData" />
+      <DisplayWeather />
     </div>
   </div>
 </template>
 
 <script>
 import DisplayWeather from './components/DisplayWeather.vue';
-import { fetchWeather } from './services/weatherService';
-import { formatWeatherData } from './services/formatData';
-
 
 export default {
   name: 'WeatherApp',
-  data() {
-    return {
-      weatherData: null,
-    };
-  },
-  methods: {
-    async getWeatherData(city) {
-      try {
-        const data = await fetchWeather(city);
-        this.weatherData = formatWeatherData(data);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-  },
   components: {
     DisplayWeather,
-  },
-  created() {
-    // Load default weather for London when the page is loaded
-    this.getWeatherData('London');
   },
   mounted() {
     // set the page title in browser tab

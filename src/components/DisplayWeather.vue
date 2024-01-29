@@ -48,20 +48,33 @@
 
 <script>
 import SearchForm from './SearchForm.vue';
+import { fetchWeather } from '@/services/weatherService';
+import { formatWeatherData } from '@/services/formatData';
+
 export default {
   name: 'DisplayWeather',
-  props: {
-    weatherData: Object,
-  },
   data() {
     return {
       isCelcius: true,
+      weatherData: null,
     };
   },
   methods: {
     toggleUnit() {
       this.isCelcius = !this.isCelcius;
     },
+    async getWeatherData(city) {
+      try {
+        const data = await fetchWeather(city);
+        this.weatherData = formatWeatherData(data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+    // Load default weather for London when the page is loaded
+    this.getWeatherData('London');
   },
   components: {
     SearchForm,

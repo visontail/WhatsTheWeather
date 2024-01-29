@@ -4,7 +4,7 @@
             <input id="search-input" v-model="city" placeholder="Another location" />
             <div id="white-line"></div>
         </div>
-        <button id="search-btn" @click="search"><img id="search-img" src="@/assets/search.svg"></button>
+        <button id="search-btn" @click="search"></button>
     </div>
 </template>
   
@@ -18,6 +18,7 @@ export default {
     methods: {
         search() {
             // Emit the search event with the city
+            console.log('Search button clicked:', this.city);
             this.$emit('search', this.city);
             this.city = '';
         },
@@ -61,6 +62,10 @@ export default {
     height: 82px;
     border: none;
     cursor: pointer;
+    background-image: url('@/assets/search.svg');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
 }
 #search-img {
     width: 40%;
