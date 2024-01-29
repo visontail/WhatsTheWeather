@@ -23,24 +23,29 @@
         <p>New York</p>
         <p>California</p>
         <p>Canberra</p>
+        <div id="white-line"></div>
         <p id="sub_heading">Weather Details</p>
         <table>
           <tbody>
             <tr>
-              <th>Feels Like:</th>
+              <th>Feels Like</th>
               <td>{{ isCelcius ? weatherData.current.feelslike_c : weatherData.current.feelslike_f }}°{{ isCelcius ? 'C' : 'F' }}</td>
             </tr>
             <tr>
-              <th>Wind:</th>
-              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'kph' : 'mph' }}, </td>
+              <th>Wind</th>
+              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'km/h' : 'mph' }}</td>
+            </tr>
+            <tr>
+              <th>Wind Direction</th>
               <td>{{ weatherData.current.wind_dir }}</td>
             </tr>
             <tr>
-              <th>Humidity:</th>
+              <th>Humidity</th>
               <td>{{ weatherData.current.humidity }}%</td>
             </tr>
           </tbody>
         </table>
+        <div id="white-line"></div>
       </div>
     </div>
   </div>
@@ -113,11 +118,13 @@ export default {
     flex-direction: column;
     
   }
+
   #temp-container #temp{
     font-size: 100px;
     font-weight: bold;
     margin: 10px;
   }
+
   #condition-container{
     padding-left: 10px;
   }
@@ -129,11 +136,44 @@ export default {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.4);
   }
+
+  #collapse{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #white-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 80%;
+    margin: 20px 0;
+  }
 }
 
 #condition-icon{
   width: 50px;
   height: 50px;
+}
+
+#toggle-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+  width: 40%;
+}
+#toggle-unit:hover {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1.5px rgba(77, 75, 75, 0.5);
+  outline: 0;
 }
 
 

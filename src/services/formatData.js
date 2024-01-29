@@ -172,7 +172,6 @@ function getDayOfWeek(localtime) {
 function formatWeatherData(data) {
   const conditionIcons = getConditionIcon(data.current.condition.text);
   const backgroundImg = getBackgroundImg(data.current.condition.text);
-  console.log(backgroundImg);
   const date = getFormattedDate(data.location.localtime);
   const dayOfWeek = getDayOfWeek(data.location.localtime);
   const formattedData = {

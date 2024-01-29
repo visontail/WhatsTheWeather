@@ -39,7 +39,6 @@ html {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   color:azure;  
 }
 
@@ -58,6 +57,7 @@ html {
   }
   #weather-app {
     max-width: 1000px;
+    box-shadow: 5px 61px 192px -6px rgba(255,255,255,0.1);
   }
 }
 

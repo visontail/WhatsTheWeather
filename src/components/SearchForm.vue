@@ -66,6 +66,15 @@ export default {
     background-size: 40%;
     background-position: center;
 }
+#search-btn:hover {
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1.5px rgba(77, 75, 75, 0.5);
+    outline: 0;
+    background-size: 45%;
+    transition: background-size 0.2s ease-in-out;
+}
+
+
+
 #search-img {
     width: 40%;
     height: 40%;
