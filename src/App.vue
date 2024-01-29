@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="weather-app">
+    <div id="weather-app" >
       <DisplayWeather />
     </div>
   </div>
@@ -29,16 +29,17 @@ html {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
 }
 #weather-app {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  background-image: url('./assets/backgrounds/clear.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color:azure;  
 }
 
@@ -47,8 +48,6 @@ html {
     padding: 5px;
   }
   #weather-app {
-    background-image: none;
-    background-color: #96B6C5;
     min-width: 500px;
   }
 }

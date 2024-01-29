@@ -18,7 +18,6 @@ export default {
     methods: {
         search() {
             // Emit the search event with the city
-            console.log('Search button clicked:', this.city);
             this.$emit('search', this.city);
             this.city = '';
         },

@@ -1,5 +1,5 @@
 <template>
-  <div id="weather-container" v-if="weatherData">
+  <div id="weather-container" v-if="weatherData" :style="{ backgroundImage: 'url(' + weatherData.current.backgroundImg + ')' }" >
     <h1 id="title">the.weather</h1>
     <div id="weather-main">
       <div id="temp-container">
@@ -86,6 +86,10 @@ export default {
 @media screen and (min-width: 800px) {
     #weather-container{
     display: flex;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   #title{
@@ -115,7 +119,6 @@ export default {
     margin: 10px;
   }
   #condition-container{
-    align-items: center;
     padding-left: 10px;
   }
 
@@ -129,8 +132,8 @@ export default {
 }
 
 #condition-icon{
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 
