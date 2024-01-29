@@ -119,10 +119,10 @@ function getBackgroundImg(condition) {
  * @param {*} localtime - The localtime from the weather api response.
  */
 function getFormattedDate(localtime) {
+  // get date
   const date = localtime.split(" ")[0];
-  //get month
-  const month = date.split("-")[1];
-  // format to text
+  // format year to last to digits
+  const yearText = date.split("-")[0].slice(2, 4);
   const months = [
     "Jan",
     "Feb",
@@ -137,18 +137,12 @@ function getFormattedDate(localtime) {
     "Nov",
     "Des",
   ];
-  const monthText = months[month - 1];
-  console.log(monthText);
+  // format month to text
+  const monthText = months[date.split("-")[1] - 1];
   //get day
   const day = date.split("-")[2];
-  console.log(day);
-  //get year
-  const year = date.split("-")[0];
-  // format year to last to digits
-  const yearText = year.slice(2, 4);
-  console.log(yearText);
-  // Get the day of the week (0-6), and use it to index into the array
-  return `${day} ${monthText} ${yearText}`;
+
+  return `${day} ${monthText} '${yearText}`;
 }
 
 /**
@@ -177,10 +171,7 @@ function formatWeatherData(data) {
   const conditionIcons = getConditionIcon(data.current.condition.text);
   const backgroundImg = getBackgroundImg(data.location.localtime);
   const date = getFormattedDate(data.location.localtime);
-  console.log(date);
   const dayOfWeek = getDayOfWeek(data.location.localtime);
-  console.log(data.location.localtime);
-
   const formattedData = {
     location: {
       name: data.location.name,

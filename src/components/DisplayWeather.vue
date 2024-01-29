@@ -16,7 +16,7 @@
       </div>
     </div>
     <div id="weather-details">
-      <SearchForm id="search-form" @search="getWeatherData" />
+      <SearchForm @search="getWeatherData" />
       <div id="collapse">
         <button id="toggle-unit" @click="toggleUnit">Switch to {{ isCelcius ? '°F' : '°C' }}</button>
         <p>Budapest</p>
@@ -27,16 +27,16 @@
         <table>
           <tbody>
             <tr>
-              <td>Feels Like:</td>
+              <th>Feels Like:</th>
               <td>{{ isCelcius ? weatherData.current.feelslike_c : weatherData.current.feelslike_f }}°{{ isCelcius ? 'C' : 'F' }}</td>
             </tr>
             <tr>
-              <td>Wind:</td>
-              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'kph' : 'mph' }}</td>
+              <th>Wind:</th>
+              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'kph' : 'mph' }}, </td>
               <td>{{ weatherData.current.wind_dir }}</td>
             </tr>
             <tr>
-              <td>Humidity:</td>
+              <th>Humidity:</th>
               <td>{{ weatherData.current.humidity }}%</td>
             </tr>
           </tbody>
@@ -56,7 +56,6 @@ export default {
   data() {
     return {
       isCelcius: true,
-      backgroundOpacity: 0.8,
     };
   },
   methods: {
@@ -71,7 +70,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
     #weather-container{
     display: flex;
   }
@@ -102,13 +101,17 @@ export default {
     font-weight: bold;
     margin: 10px;
   }
+  #condition-container{
+    align-items: center;
+    padding-left: 10px;
+  }
 
   #weather-details{
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -118,7 +121,7 @@ export default {
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   #weather-main {
     flex-direction: column;
     align-items: center;

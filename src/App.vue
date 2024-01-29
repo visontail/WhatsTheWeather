@@ -44,33 +44,43 @@ export default {
 </script>
 
 <style>
+html {
+  background: #1e1d1e;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 40px;
 }
 #weather-app {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  background-image: url('./assets/backgrounds/storm.jpg');
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-image: url('./assets/backgrounds/clear.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color:azure;  
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   #app {
     padding: 5px;
   }
   #weather-app {
     background-image: none;
-    background-color: #030637;
-    min-width: 400px;
+    background-color: #96B6C5;
+    min-width: 500px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #app {
+    padding: 5px;
+  }
+  #weather-app {
+    max-width: 1000px;
   }
 }
 
