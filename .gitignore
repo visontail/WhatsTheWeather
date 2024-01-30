@@ -5,6 +5,9 @@ node_modules
 # Config files
 .env
 
+# Docker files
+.dockerignore
+
 
 # local env files
 .env.local
