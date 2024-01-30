@@ -26,7 +26,7 @@ html {
   background: #1e1d1e;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-items: center;
@@ -42,12 +42,18 @@ html {
   color:azure;  
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 465px) {
   #app {
-    padding: 5px;
+    background-color: red;
   }
   #weather-app {
-    min-width: 500px;
+    min-width: 450px;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 465px) {
+  #weather-app {
+    min-width: 465px;
   }
 }
 

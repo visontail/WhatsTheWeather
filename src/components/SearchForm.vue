@@ -2,7 +2,6 @@
     <div id="search-container">
         <div id="search-box">
             <input id="search-input" v-model="city" placeholder="Another location" />
-            <div id="white-line"></div>
         </div>
         <button id="search-btn" @click="search"></button>
     </div>
@@ -32,6 +31,7 @@ export default {
     align-items: center;
     padding-left: 15px;
 }
+
 #search-box {
     display: flex;
     flex-direction: column;
@@ -39,6 +39,7 @@ export default {
     width: 80%;
     margin: 20px 40px 20px 0;
 }
+
 #search-input {
     width: 100%;
     height: 80px;
@@ -46,16 +47,20 @@ export default {
     font-size: 16px;
     background-color: rgba(255, 255, 255, 0.0);
     color: white;
+    border-bottom: 1px solid  rgba(255, 255, 255, 0.4);
 }
 #search-input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.6); 
+    font-size: 14px;
+    transform: translateY(8px);
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+#search-input:hover::placeholder {
+    color: #ffffff;
+    font-size: 16px;
+    transform: translateY(0);
 }
 
-#white-line {
-    width: 100%;
-    height: 1px;
-    background-color: white;
-}
 #search-btn {
     width: 82px;
     height: 82px;
@@ -72,8 +77,6 @@ export default {
     background-size: 45%;
     transition: background-size 0.2s ease-in-out;
 }
-
-
 
 #search-img {
     width: 40%;

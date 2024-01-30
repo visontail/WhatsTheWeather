@@ -7,7 +7,7 @@
         <p v-else id="temp">{{ weatherData.current.temp_f }}°</p>
       </div>
       <div id="info-container">
-        <h2 id="city">{{ weatherData.location.name }}</h2>
+        <p id="city">{{ weatherData.location.name }}</p>
         <p>{{ weatherData.location.hour }} - {{ weatherData.location.dayOfWeek }}, {{ weatherData.location.date }}</p>
       </div>
       <div id="condition-container">
@@ -19,10 +19,10 @@
       <SearchForm @search="getWeatherData" />
       <div id="collapse">
         <button id="toggle-unit" @click="toggleUnit">Switch to {{ isCelcius ? '°F' : '°C' }}</button>
-        <p>Budapest</p>
-        <p>New York</p>
-        <p>California</p>
-        <p>Canberra</p>
+        <button id="suggest-btn" @click="getWeatherData('Budapest')">Budapest</button>
+        <button id="suggest-btn" @click="getWeatherData('New York')">New York</button>
+        <button id="suggest-btn" @click="getWeatherData('California')">California</button>
+        <button id="suggest-btn" @click="getWeatherData('Canberra')">Canberra</button>
         <div id="white-line"></div>
         <p id="sub_heading">Weather Details</p>
         <table>
@@ -97,13 +97,80 @@ export default {
     background-attachment: fixed;
   }
 
+  #weather-details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
   #title{
     font-size: 15px;
     position: absolute;
     margin: 40px 0 0 40px ;
   }
 
-  #weather-main{
+  #collapse{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 60px;
+  }
+
+  #suggest-btn{
+    margin: 10px 0;
+    border: 0;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.0);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    text-align: left;
+    width: 35%;
+  }
+  #suggest-btn:hover{
+    outline: 0;
+    color: white;
+    transition: background-size 0.2s ease-in-out;
+  }
+
+  #white-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 80%;
+    margin: 20px 0;
+  }
+
+  #sub_heading{
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    margin: 15px 0 25px 0;
+  }
+
+  table {
+    width: 80%;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  td {
+    text-align: right;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+#weather-main{
     flex: 2;
     display: flex;
     flex-direction: row;
@@ -111,6 +178,7 @@ export default {
     justify-content: center;
     margin-bottom: 40px;
   }
+
   #temp-container,
   #info-container,
   #condition-container {
@@ -125,32 +193,27 @@ export default {
     margin: 10px;
   }
 
+  #info-container,
+  #condition-container{
+    margin-bottom: 20px;
+  }
+
+  #info-container #city{
+    font-size: 50px;
+    margin: 0;
+  }
+  #info-container p{
+    font-size: 14px;
+    margin: 0;
+  }
+
   #condition-container{
     padding-left: 10px;
+    font-size: 12px;
   }
-
-  #weather-details{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.4);
+  #condition-container p{
+    margin: 0;
   }
-
-  #collapse{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  #white-line {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 80%;
-    margin: 20px 0;
-  }
-}
 
 #condition-icon{
   width: 50px;
@@ -162,6 +225,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
+  margin-bottom: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   border-radius: 6px;
   color: #3D3D3D;
@@ -176,8 +240,7 @@ export default {
   outline: 0;
 }
 
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) and (min-width: 465px) {
   #weather-main {
     flex-direction: column;
     align-items: center;
@@ -186,21 +249,16 @@ export default {
     justify-content: center;
   }
 
-  #temp-container,
-  #info-container,
-  #condition-container {
-    margin: 5px;
-  }
-
-  #temp-container #temp{
-    font-size: 100px;
-    font-weight: bold;
+  #weather-details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   #title{
     font-size: 15px;
   }
-
   /* Hide Weather details */
   #collapse{
     display: none;
