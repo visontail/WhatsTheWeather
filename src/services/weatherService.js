@@ -30,8 +30,11 @@ async function fetchWeather(city) {
         // Return response data
         return response.data;
       } catch (error) {
-          console.error(error);
-          // handle error here
+          //console.error(error);
+          alert(`
+          No location was found matching: '${city}'.
+          Please try again.
+          `);
       }
 }
 // Export fetchWeather function

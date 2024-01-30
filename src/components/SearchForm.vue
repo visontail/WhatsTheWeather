@@ -16,10 +16,16 @@ export default {
     },
     methods: {
         search() {
-            // Emit the search event with the city
-            this.$emit('search', this.city);
-            this.city = '';
+            if(this.city.trim() === '') {
+                alert('Please enter a location.');
+            }
+            else {
+                // Emit the search event with the city
+                this.$emit('search', this.city);
+                this.city = '';
+            }
         },
+        
     },
 };
 </script>
