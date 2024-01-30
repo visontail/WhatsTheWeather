@@ -263,7 +263,7 @@ screen and (max-width: 800px){
 }
 @media screen and (max-width: 800px) {
   #weather-main {
-    padding-top: 100px;
+    padding-top: 60px;
   }
 }
 
