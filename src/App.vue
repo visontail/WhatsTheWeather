@@ -43,11 +43,10 @@ html {
 }
 
 @media screen and (max-width: 465px) {
-  #app {
-    background-color: red;
-  }
   #weather-app {
-    min-width: 450px;
+    min-width: 350px;
+    padding: 10px;
+    width: 95%;
   }
 }
 

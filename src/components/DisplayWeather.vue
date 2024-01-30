@@ -1,5 +1,6 @@
 <template>
-  <div id="weather-container" v-if="weatherData" :style="{ backgroundImage: 'url(' + weatherData.current.backgroundImg + ')' }" >
+  <div id="weather-container" v-if="weatherData"
+    :style="{ backgroundImage: 'url(' + weatherData.current.backgroundImg + ')' }">
     <h1 id="title">the.weather</h1>
     <div id="weather-main">
       <div id="temp-container">
@@ -11,7 +12,7 @@
         <p>{{ weatherData.location.hour }} - {{ weatherData.location.dayOfWeek }}, {{ weatherData.location.date }}</p>
       </div>
       <div id="condition-container">
-        <img id="condition-icon" :src="weatherData.current.condition.icon"/>
+        <img id="condition-icon" :src="weatherData.current.condition.icon" />
         <p>{{ weatherData.current.condition.text }}</p>
       </div>
     </div>
@@ -29,11 +30,13 @@
           <tbody>
             <tr>
               <th>Feels Like</th>
-              <td>{{ isCelcius ? weatherData.current.feelslike_c : weatherData.current.feelslike_f }}°{{ isCelcius ? 'C' : 'F' }}</td>
+              <td>{{ isCelcius ? weatherData.current.feelslike_c : weatherData.current.feelslike_f }}°{{ isCelcius ? 'C' :
+                'F' }}</td>
             </tr>
             <tr>
               <th>Wind</th>
-              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'km/h' : 'mph' }}</td>
+              <td>{{ isCelcius ? weatherData.current.wind_kph : weatherData.current.wind_mph }} {{ isCelcius ? 'km/h' :
+                'mph' }}</td>
             </tr>
             <tr>
               <th>Wind Direction</th>
@@ -88,134 +91,51 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 800px) {
-    #weather-container{
-    display: flex;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-
-  #weather-details{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-
-  #title{
-    font-size: 15px;
-    position: absolute;
-    margin: 40px 0 0 40px ;
-  }
-
-  #collapse{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 60px;
-  }
-
-  #suggest-btn{
-    margin: 10px 0;
-    border: 0;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.0);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16px;
-    text-align: left;
-    width: 35%;
-  }
-  #suggest-btn:hover{
-    outline: 0;
-    color: white;
-    transition: background-size 0.2s ease-in-out;
-  }
-
-  #white-line {
-    width: 100%;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.4);
-    width: 80%;
-    margin: 20px 0;
-  }
-
-  #sub_heading{
-    font-weight: bold;
-    font-size: 16px;
-    margin: 0;
-    margin: 15px 0 25px 0;
-  }
-
-  table {
-    width: 80%;
-    border-collapse: collapse;
-  }
-
-  th {
-    text-align: left;
-    padding: 5px;
-    font-size: 16px;
-    font-weight: normal;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  td {
-    text-align: right;
-    padding: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-  }
+#weather-main {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-#weather-main{
-    flex: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
+#temp-container,
+#info-container,
+#condition-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  #temp-container,
-  #info-container,
-  #condition-container {
-    display: flex;
-    flex-direction: column;
-    
-  }
+#temp-container #temp {
+  font-size: 100px;
+  font-weight: bold;
+  margin: 10px;
+}
 
-  #temp-container #temp{
-    font-size: 100px;
-    font-weight: bold;
-    margin: 10px;
-  }
+#info-container,
+#condition-container {
+  margin-bottom: 20px;
+}
 
-  #info-container,
-  #condition-container{
-    margin-bottom: 20px;
-  }
+#info-container #city {
+  font-size: 50px;
+  margin: 0;
+}
 
-  #info-container #city{
-    font-size: 50px;
-    margin: 0;
-  }
-  #info-container p{
-    font-size: 14px;
-    margin: 0;
-  }
+#info-container p {
+  font-size: 14px;
+  margin: 0;
+}
 
-  #condition-container{
-    padding-left: 10px;
-    font-size: 12px;
-  }
-  #condition-container p{
-    margin: 0;
-  }
-
-#condition-icon{
+#condition-container {
+  padding-left: 10px;
+  font-size: 12px;
+}
+#condition-container p {
+  margin: 0;
+}
+#condition-icon {
   width: 50px;
   height: 50px;
 }
@@ -240,7 +160,81 @@ export default {
   outline: 0;
 }
 
-@media screen and (max-width: 800px) and (min-width: 465px) {
+#weather-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  font-size: 15px;
+  position: absolute;
+  margin: 40px 0 0 40px;
+}
+
+#collapse {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 60px;
+}
+
+#suggest-btn {
+  margin: 10px 0;
+  border: 0;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.0);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  text-align: left;
+  width: 35%;
+}
+
+#suggest-btn:hover {
+  outline: 0;
+  color: white;
+  transition: background-size 0.2s ease-in-out;
+}
+
+#white-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 80%;
+  margin: 20px 0;
+}
+
+#sub_heading {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  margin: 15px 0 25px 0;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+td {
+  text-align: right;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+@media screen and (max-width: 465px),
+screen and (max-width: 800px){
   #weather-main {
     flex-direction: column;
     align-items: center;
@@ -248,23 +242,65 @@ export default {
     flex-direction: row;
     justify-content: center;
   }
+  #toggle-unit {
+    width: 30%;
+    max-width: 150px;
+  }
+}
 
-  #weather-details{
-    flex: 1;
+@media screen and (min-width: 800px) {
+  #weather-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
-  #title{
-    font-size: 15px;
+  #weather-details {
+    background-color: rgba(255, 255, 255, 0.4);
   }
-  /* Hide Weather details */
-  #collapse{
-    display: none;
+}
+@media screen and (max-width: 800px) {
+  #weather-main {
+    padding-top: 100px;
   }
-  
+}
+
+@media screen and (max-width: 500px) {
+  #weather-main {
+    padding-top: 60px;
+  }
+
+  #temp-container #temp {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  #info-container,
+  #condition-container {
+    margin-bottom: 20px;
+  }
+
+  #info-container #city {
+    font-size: 20px;
+    margin: 0;
+  }
+  #info-container p {
+    font-size: 10px;
+    margin: 0;
+  }
+
+  #condition-container {
+  padding-left: 10px;
+  font-size: 10px;
+  }
+  #condition-icon {
+  width: 35px;
+  height: 35px;
+  }
+
 }
 
 </style>
-
