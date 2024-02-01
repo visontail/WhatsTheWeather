@@ -24,9 +24,6 @@
 
 *UI design inspired by: https://www.pinterest.com/pin/375980268903047387/*
 
-
-https://rapidapi.com/weatherapi/api/weatherapi-com
-
 ## Setup Steps:
 
 1. **Clone the Repository:**
