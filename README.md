@@ -20,7 +20,8 @@
 
 ## Screenshot of the application
 *(live version coming soon)*
-![whats-the-weather](https://github.com/visontail/WhatsTheWeather/assets/99392016/01b5da4c-b7ee-436a-9cae-88317eef9d53)
+![whats-the-weather](https://github.com/visontail/WhatsTheWeather/assets/99392016/10794842-e232-45be-b10e-2e99763dc6c1)
+
 
 *UI design inspired by: https://www.pinterest.com/pin/375980268903047387/*
 
