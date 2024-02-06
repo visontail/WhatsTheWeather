@@ -2,6 +2,7 @@
 
 ## Description
 **WhatsTheWeather** is a weather application designed to provide users with current weather conditions and forecasts. It allows users to easily search for weather information in different locations. The application is built to integrate seamlessly with the https://www.weatherapi.com/ weather API.
+*UI design inspired by: https://www.pinterest.com/pin/375980268903047387/*
 
 ## Technologies
 - *Front-end Framework :* **Vue.js**
@@ -18,12 +19,9 @@
 - **Containerization:**
   - The project is containerized using Docker, ensuring a consistent and isolated environment. This simplifies deployment across various platforms and enhances scalability.
 
-## Screenshot of the application
-*(live version coming soon)*
-![whats-the-weather](https://github.com/visontail/WhatsTheWeather/assets/99392016/10794842-e232-45be-b10e-2e99763dc6c1)
+## Live version
 
-
-*UI design inspired by: https://www.pinterest.com/pin/375980268903047387/*
+Available at https://visontail.github.io/WhatsTheWeather/
 
 ## Setup Steps:
 
