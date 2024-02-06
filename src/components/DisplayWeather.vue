@@ -1,31 +1,31 @@
 <template>
-  <div id="weather-container" v-if="weatherData"
+  <div class="weather-container" v-if="weatherData"
     :style="{ backgroundImage: 'url(' + weatherData.current.backgroundImg + ')' }">
-    <h1 id="title">the.weather</h1>
-    <div id="weather-main">
-      <div id="temp-container">
-        <p v-if="isCelcius" id="temp">{{ weatherData.current.temp_c }}°</p>
-        <p v-else id="temp">{{ weatherData.current.temp_f }}°</p>
+    <h1 class="title">the.weather</h1>
+    <div class="weather-main">
+      <div class="temp-container">
+        <p v-if="isCelcius" class="temp">{{ weatherData.current.temp_c }}°</p>
+        <p v-else class="temp">{{ weatherData.current.temp_f }}°</p>
       </div>
-      <div id="info-container">
-        <p id="city">{{ weatherData.location.name }}</p>
+      <div class="info-container">
+        <p class="city">{{ weatherData.location.name }}</p>
         <p>{{ weatherData.location.hour }} - {{ weatherData.location.dayOfWeek }}, {{ weatherData.location.date }}</p>
       </div>
-      <div id="condition-container">
-        <img id="condition-icon" :src="weatherData.current.condition.icon" />
+      <div class="condition-container">
+        <img class="condition-icon" :src="weatherData.current.condition.icon" />
         <p>{{ weatherData.current.condition.text }}</p>
       </div>
     </div>
-    <div id="weather-details">
+    <div class="weather-details">
       <SearchForm @search="getWeatherData" />
-      <div id="collapse">
-        <button id="toggle-unit" @click="toggleUnit">Switch to {{ isCelcius ? '°F' : '°C' }}</button>
-        <button id="suggest-btn" @click="getWeatherData('Budapest')">Budapest</button>
-        <button id="suggest-btn" @click="getWeatherData('New York')">New York</button>
-        <button id="suggest-btn" @click="getWeatherData('California')">California</button>
-        <button id="suggest-btn" @click="getWeatherData('Canberra')">Canberra</button>
-        <div id="white-line"></div>
-        <p id="sub_heading">Weather Details</p>
+      <div class="collapse">
+        <button class="toggle-unit" @click="toggleUnit">Switch to {{ isCelcius ? '°F' : '°C' }}</button>
+        <button class="suggest-btn" @click="getWeatherData('Budapest')">Budapest</button>
+        <button class="suggest-btn" @click="getWeatherData('New York')">New York</button>
+        <button class="suggest-btn" @click="getWeatherData('California')">California</button>
+        <button class="suggest-btn" @click="getWeatherData('Canberra')">Canberra</button>
+        <div class="white-line"></div>
+        <p class="sub_heading">Weather Details</p>
         <table>
           <tbody>
             <tr>
@@ -48,7 +48,7 @@
             </tr>
           </tbody>
         </table>
-        <div id="white-line"></div>
+        <div class="white-line"></div>
       </div>
     </div>
   </div>
@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style scoped>
-#weather-main {
+.weather-main {
   flex: 2;
   display: flex;
   flex-direction: row;
@@ -100,47 +100,47 @@ export default {
   margin-bottom: 40px;
 }
 
-#temp-container,
-#info-container,
-#condition-container {
+.temp-container,
+.info-container,
+.condition-container {
   display: flex;
   flex-direction: column;
 }
 
-#temp-container #temp {
+.temp-container .temp {
   font-size: 100px;
   font-weight: bold;
   margin: 10px;
 }
 
-#info-container,
-#condition-container {
+.info-container,
+.condition-container {
   margin-bottom: 20px;
 }
 
-#info-container #city {
+.info-container .city {
   font-size: 50px;
   margin: 0;
 }
 
-#info-container p {
+.info-container p {
   font-size: 14px;
   margin: 0;
 }
 
-#condition-container {
+.condition-container {
   padding-left: 10px;
   font-size: 12px;
 }
-#condition-container p {
+.condition-container p {
   margin: 0;
 }
-#condition-icon {
+.condition-icon {
   width: 50px;
   height: 50px;
 }
 
-#toggle-unit {
+.toggle-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,32 +155,32 @@ export default {
   touch-action: manipulation;
   width: 40%;
 }
-#toggle-unit:hover {
+.toggle-unit:hover {
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1.5px rgba(77, 75, 75, 0.5);
   outline: 0;
 }
 
-#weather-details {
+.weather-details {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#title {
+.title {
   font-size: 15px;
   position: absolute;
   margin: 40px 0 0 40px;
 }
 
-#collapse {
+.collapse {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding-left: 60px;
 }
 
-#suggest-btn {
+.suggest-btn {
   margin: 10px 0;
   border: 0;
   cursor: pointer;
@@ -191,13 +191,13 @@ export default {
   width: 35%;
 }
 
-#suggest-btn:hover {
+.suggest-btn:hover {
   outline: 0;
   color: white;
   transition: background-size 0.2s ease-in-out;
 }
 
-#white-line {
+.white-line {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.4);
@@ -205,7 +205,7 @@ export default {
   margin: 20px 0;
 }
 
-#sub_heading {
+.sub_heading {
   font-weight: bold;
   font-size: 16px;
   margin: 0;
@@ -235,21 +235,21 @@ td {
 
 @media screen and (max-width: 465px),
 screen and (max-width: 800px){
-  #weather-main {
+  .weather-main {
     flex-direction: column;
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
-  #toggle-unit {
+  .toggle-unit {
     width: 30%;
     max-width: 150px;
   }
 }
 
 @media screen and (min-width: 800px) {
-  #weather-container {
+  .weather-container {
     display: flex;
     background-size: cover;
     background-position: center;
@@ -257,46 +257,46 @@ screen and (max-width: 800px){
     background-attachment: fixed;
   }
 
-  #weather-details {
+  .weather-details {
     background-color: rgba(255, 255, 255, 0.4);
   }
 }
 @media screen and (max-width: 800px) {
-  #weather-main {
+  .weather-main {
     padding-top: 60px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #weather-main {
+  .weather-main {
     padding-top: 60px;
   }
 
-  #temp-container #temp {
+  .temp-container .temp {
     font-size: 50px;
     font-weight: bold;
     margin: 10px;
   }
 
-  #info-container,
-  #condition-container {
+  .info-container,
+  .condition-container {
     margin-bottom: 20px;
   }
 
-  #info-container #city {
+  .info-container .city {
     font-size: 20px;
     margin: 0;
   }
-  #info-container p {
+  .info-container p {
     font-size: 10px;
     margin: 0;
   }
 
-  #condition-container {
+  .condition-container {
   padding-left: 10px;
   font-size: 10px;
   }
-  #condition-icon {
+  .condition-icon {
   width: 35px;
   height: 35px;
   }

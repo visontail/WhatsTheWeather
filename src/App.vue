@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div id="weather-app" >
+  <div class="app">
+    <div class="weather-app" >
       <DisplayWeather />
     </div>
   </div>
@@ -22,10 +22,17 @@ export default {
 </script>
 
 <style>
+* {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
 html {
   background: #1e1d1e;
 }
-#app {
+
+.app {
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,7 +42,8 @@ html {
   height: 100vh;
   width: 100vw;
 }
-#weather-app {
+
+.weather-app {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -43,7 +51,7 @@ html {
 }
 
 @media screen and (max-width: 465px) {
-  #weather-app {
+  .weather-app {
     min-width: 350px;
     padding: 10px;
     width: 95%;
@@ -51,20 +59,18 @@ html {
 }
 
 @media screen and (max-width: 800px) and (min-width: 465px) {
-  #weather-app {
+  .weather-app {
     min-width: 465px;
   }
 }
 
 @media screen and (min-width: 800px) {
-  #app {
+  .app {
     padding: 5px;
   }
-  #weather-app {
+  .weather-app {
     max-width: 1000px;
     box-shadow: 5px 61px 192px -6px rgba(255,255,255,0.1);
   }
 }
-
-
 </style>

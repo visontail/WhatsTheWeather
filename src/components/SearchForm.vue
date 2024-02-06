@@ -1,9 +1,9 @@
 <template>
-    <div id="search-container">
-        <div id="search-box">
-            <input id="search-input" v-model="city" placeholder="Another location" />
+    <div class="search-container">
+        <div class="search-box">
+            <input class="search-input" v-model="city" placeholder="Another location" />
         </div>
-        <button id="search-btn" @click="search"></button>
+        <button class="search-btn" @click="search"></button>
     </div>
 </template>
   
@@ -31,14 +31,14 @@ export default {
 </script>
   
 <style scoped>
-#search-container {
+.search-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 15px;
 }
 
-#search-box {
+.search-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +46,7 @@ export default {
     margin: 20px 40px 20px 0;
 }
 
-#search-input {
+.search-input {
     width: 100%;
     height: 80px;
     border: none;
@@ -55,19 +55,19 @@ export default {
     color: white;
     border-bottom: 1px solid  rgba(255, 255, 255, 0.4);
 }
-#search-input::placeholder {
+.search-input::placeholder {
     color: rgba(255, 255, 255, 0.6); 
     font-size: 14px;
     transform: translateY(8px);
     transition: color 0.3s ease, font-size 0.3s ease;
 }
-#search-input:hover::placeholder {
+.search-input:hover::placeholder {
     color: #ffffff;
     font-size: 16px;
     transform: translateY(0);
 }
 
-#search-btn {
+.search-btn {
     width: 82px;
     height: 82px;
     border: none;
@@ -77,14 +77,14 @@ export default {
     background-size: 40%;
     background-position: center;
 }
-#search-btn:hover {
+.search-btn:hover {
     box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1.5px rgba(77, 75, 75, 0.5);
     outline: 0;
     background-size: 45%;
     transition: background-size 0.2s ease-in-out;
 }
 
-#search-img {
+.search-img {
     width: 40%;
     height: 40%;
 }
