@@ -2,6 +2,7 @@
 
 ## Description
 **WhatsTheWeather** is a weather application designed to provide users with current weather conditions and forecasts. It allows users to easily search for weather information in different locations. The application is built to integrate seamlessly with the https://www.weatherapi.com/ weather API.
+
 *UI design inspired by: https://www.pinterest.com/pin/375980268903047387/*
 
 ## Live version
