@@ -12,7 +12,6 @@ Available at https://visontail.github.io/WhatsTheWeather/
 ## Technologies
 - *Front-end Framework :* **Vue.js**
 - *HTTP Requests :* **Axios**
-- *Styling :* **Bootstrap**
 
 ## Features
 - **Location Search:**
